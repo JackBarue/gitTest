@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D304DEAF-D81C-426D-A583-ECCF5B983043}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StRttmy</RootNamespace>
+    <AssemblyName>StRttmy</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>star01.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\ICSharpCode.SharpZipLib.dll.0.85.4.369\lib\net20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\packages\UnityEngine.1.0.0\lib\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\Courseware\CourseBLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BLL\Examine\PaperBLL.cs" />
+    <Compile Include="BLL\Examine\QuestionBLL.cs" />
+    <Compile Include="BLL\Resource\ResourceBLL.cs" />
+    <Compile Include="BLL\StType\StTypeBLL.cs" />
+    <Compile Include="BLL\User\UserBLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\ComboBoxShow.cs" />
+    <Compile Include="Common\DataGridViewRadioButtonClass.cs" />
+    <Compile Include="Common\LabelTx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\LabelTx.Designer.cs">
+      <DependentUpon>LabelTx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\MachineInfo.cs" />
+    <Compile Include="Common\MultiSelectTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common\QuestionHelp.cs" />
+    <Compile Include="Common\SecHelp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\ShareClass.cs" />
+    <Compile Include="Common\ShareClassSec.cs" />
+    <Compile Include="Common\StSec.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\SuperNameUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\TextUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\XmlMenuUtility.cs" />
+    <Compile Include="Model\CoursewareLevel\CoursewareLevel.cs" />
+    <Compile Include="Model\Courseware\CourseResourceTag.cs" />
+    <Compile Include="Model\Courseware\Courseware.cs" />
+    <Compile Include="Model\Courseware\CoursewareResources.cs" />
+    <Compile Include="Model\Courseware\PlatformZTreeNode.cs" />
+    <Compile Include="Model\DataDiagram\DiagramCourseware.cs" />
+    <Compile Include="Model\DataDiagram\DiagramPOP.cs" />
+    <Compile Include="Model\DataDiagram\DiagramResults.cs" />
+    <Compile Include="Model\DataDiagram\DiagramShowClass.cs" />
+    <Compile Include="Model\DataDiagram\DiagramTestQuestion.cs" />
+    <Compile Include="Model\Examine\ClassExamPaper.cs" />
+    <Compile Include="Model\Examine\ExaminationPaperClass.cs" />
+    <Compile Include="Model\Examine\ExamPaper.cs" />
+    <Compile Include="Model\Examine\GeneratePaperSelectItem.cs" />
+    <Compile Include="Model\Examine\ListItem.cs" />
+    <Compile Include="Model\Examine\QuestionSelectItem.cs" />
+    <Compile Include="Model\Examine\QuestionType.cs" />
+    <Compile Include="Model\Examine\ReadPapersClass.cs" />
+    <Compile Include="Model\Examine\SelectItemType.cs" />
+    <Compile Include="Model\Examine\StudentAnswer.cs" />
+    <Compile Include="Model\Examine\StudentExamPaper.cs" />
+    <Compile Include="Model\Examine\StudentPaperListShowClass.cs" />
+    <Compile Include="Model\Examine\TestPaper.cs" />
+    <Compile Include="Model\Examine\TestQuestion.cs" />
+    <Compile Include="Model\Examine\TestQuestionClass.cs" />
+    <Compile Include="Model\Examine\TestQuestionResource.cs" />
+    <Compile Include="Model\Examine\TestQuestionUserClass.cs" />
+    <Compile Include="Model\Examine\TestStateSelectItem.cs" />
+    <Compile Include="Model\Resource\Resource.cs" />
+    <Compile Include="Model\Resource\ResourceLevel.cs" />
+    <Compile Include="Model\Resource\ResourceList.cs" />
+    <Compile Include="Model\Resource\ResourceListClass.cs" />
+    <Compile Include="Model\StClass\ClassStudent.cs" />
+    <Compile Include="Model\StClass\StClass.cs" />
+    <Compile Include="Model\StType\StLevel.cs" />
+    <Compile Include="Model\StType\StType.cs" />
+    <Compile Include="Model\StType\StTypeSupply.cs" />
+    <Compile Include="Model\Student\Student.cs" />
+    <Compile Include="Model\Teaching\Teaching.cs" />
+    <Compile Include="Model\User\User.cs" />
+    <Compile Include="Model\User\UserChangePassword.cs" />
+    <Compile Include="Model\User\UserLogin.cs" />
+    <Compile Include="Model\User\UserSelectItem.cs" />
+    <Compile Include="Model\User\UserType.cs" />
+    <Compile Include="Model\Validation.cs" />
+    <Compile Include="Model\ZTreeNode.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ClassStudentRepository.cs" />
+    <Compile Include="Repository\CoursewareLevelRepository.cs" />
+    <Compile Include="Repository\CoursewareRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repository\PaperRepository.cs" />
+    <Compile Include="Repository\QuestionRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repository\ResourceRepository.cs" />
+    <Compile Include="Repository\StClassRepository.cs" />
+    <Compile Include="Repository\StLevelRepository.cs" />
+    <Compile Include="Repository\StRttmyContext.cs" />
+    <Compile Include="Repository\StTypeRepository.cs" />
+    <Compile Include="Repository\StTypeSupplyRepository.cs" />
+    <Compile Include="Repository\StudentRepository.cs" />
+    <Compile Include="Repository\TeachingRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\AddAlltType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\AddAlltType.Designer.cs">
+      <DependentUpon>AddAlltType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\AddCusCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\AddCusCourseForm.Designer.cs">
+      <DependentUpon>AddCusCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\AddStType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\AddStType.Designer.cs">
+      <DependentUpon>AddStType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\ChooseClassFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\ChooseClassFrom.Designer.cs">
+      <DependentUpon>ChooseClassFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\CourseListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\CourseListForm.Designer.cs">
+      <DependentUpon>CourseListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\CourseResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\CourseResourceForm.Designer.cs">
+      <DependentUpon>CourseResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\CusCourseListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\CusCourseListForm.Designer.cs">
+      <DependentUpon>CusCourseListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\DetailCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\DetailCourseForm.Designer.cs">
+      <DependentUpon>DetailCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\Drawing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\Drawing.Designer.cs">
+      <DependentUpon>Drawing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\EditCourseResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\EditCourseResourceForm.Designer.cs">
+      <DependentUpon>EditCourseResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\EditCusCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\EditCusCourseForm.Designer.cs">
+      <DependentUpon>EditCusCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\EditPubCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\EditPubCourseForm.Designer.cs">
+      <DependentUpon>EditPubCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\Mapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\Mapping.Designer.cs">
+      <DependentUpon>Mapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\PromptDrag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\PromptDrag.Designer.cs">
+      <DependentUpon>PromptDrag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\PubCourseListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\PubCourseListForm.Designer.cs">
+      <DependentUpon>PubCourseListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\PublishCourseware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\PublishCourseware.Designer.cs">
+      <DependentUpon>PublishCourseware.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Courseware\SetPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Courseware\SetPath.designer.cs">
+      <DependentUpon>SetPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Diagram\DiagramAnalysis .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Diagram\DiagramAnalysis .Designer.cs">
+      <DependentUpon>DiagramAnalysis .cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Diagram\DiagramShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Diagram\DiagramShow.Designer.cs">
+      <DependentUpon>DiagramShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Diagram\ResultsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Diagram\ResultsReport.Designer.cs">
+      <DependentUpon>ResultsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\AddPaperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\AddPaperForm.Designer.cs">
+      <DependentUpon>AddPaperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\AddTestQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\AddTestQuestionForm.Designer.cs">
+      <DependentUpon>AddTestQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\AnswerCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\AnswerCardForm.Designer.cs">
+      <DependentUpon>AnswerCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\ATQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\ATQuestionForm.Designer.cs">
+      <DependentUpon>ATQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\CardofScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\CardofScoreForm.Designer.cs">
+      <DependentUpon>CardofScoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\ChosePaperClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\ChosePaperClassForm.Designer.cs">
+      <DependentUpon>ChosePaperClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\EditQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\EditQuestionForm.Designer.cs">
+      <DependentUpon>EditQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\ExaminationPaperDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\ExaminationPaperDetailForm.Designer.cs">
+      <DependentUpon>ExaminationPaperDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\ExaminationPaperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\ExaminationPaperForm.Designer.cs">
+      <DependentUpon>ExaminationPaperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\MSQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\MSQuestionForm.Designer.cs">
+      <DependentUpon>MSQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\NewAddPaperQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\NewAddPaperQuestionForm.Designer.cs">
+      <DependentUpon>NewAddPaperQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\NewAddResourceQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\NewAddResourceQuestionForm.Designer.cs">
+      <DependentUpon>NewAddResourceQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\NewEditQuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\NewEditQuestionForm.Designer.cs">
+      <DependentUpon>NewEditQuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\NewTestingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\NewTestingForm.Designer.cs">
+      <DependentUpon>NewTestingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\NewTestQuestionListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\NewTestQuestionListForm.Designer.cs">
+      <DependentUpon>NewTestQuestionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\QuestionResourceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\QuestionResourceListForm.Designer.cs">
+      <DependentUpon>QuestionResourceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\ReadPapersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\ReadPapersForm.Designer.cs">
+      <DependentUpon>ReadPapersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\StudentPaperDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\StudentPaperDetailForm.Designer.cs">
+      <DependentUpon>StudentPaperDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\StudentPaperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\StudentPaperForm.Designer.cs">
+      <DependentUpon>StudentPaperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\TestingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\TestingForm.Designer.cs">
+      <DependentUpon>TestingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\TestPapersListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\TestPapersListForm.Designer.cs">
+      <DependentUpon>TestPapersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Examine\TestQuestionsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Examine\TestQuestionsListForm.Designer.cs">
+      <DependentUpon>TestQuestionsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Help\AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Help\AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Help\OperationManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Help\OperationManual.Designer.cs">
+      <DependentUpon>OperationManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Help\TechnicalSupport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Help\TechnicalSupport.Designer.cs">
+      <DependentUpon>TechnicalSupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\AddResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\AddResourceForm.Designer.cs">
+      <DependentUpon>AddResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\CusResourceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\CusResourceListForm.Designer.cs">
+      <DependentUpon>CusResourceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\DerivedResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\DerivedResourceForm.Designer.cs">
+      <DependentUpon>DerivedResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\DetailResourceContentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\DetailResourceContentForm.Designer.cs">
+      <DependentUpon>DetailResourceContentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\DetailResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\DetailResourceForm.Designer.cs">
+      <DependentUpon>DetailResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\ResourceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\ResourceListForm.Designer.cs">
+      <DependentUpon>ResourceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Resource\UpdateResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Resource\UpdateResourceForm.Designer.cs">
+      <DependentUpon>UpdateResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\AddClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\AddClassForm.Designer.cs">
+      <DependentUpon>AddClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\AddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\ChangePwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\ChangePwdForm.Designer.cs">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\ChangeUserInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\ChangeUserInfoForm.Designer.cs">
+      <DependentUpon>ChangeUserInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\DemoVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\DemoVideo.Designer.cs">
+      <DependentUpon>DemoVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\DetailStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\DetailStudentForm.Designer.cs">
+      <DependentUpon>DetailStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\RegistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\RegistForm.Designer.cs">
+      <DependentUpon>RegistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\StClassFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\StClassFrom.Designer.cs">
+      <DependentUpon>StClassFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\StudentFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\StudentFrom.Designer.cs">
+      <DependentUpon>StudentFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\UpdateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\UpdateUserForm.Designer.cs">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\User\UserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\User\UserListForm.Designer.cs">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Courseware\AddAlltType.resx">
+      <DependentUpon>AddAlltType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\AddCusCourseForm.resx">
+      <DependentUpon>AddCusCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\AddStType.resx">
+      <DependentUpon>AddStType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\ChooseClassFrom.resx">
+      <DependentUpon>ChooseClassFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\CourseListForm.resx">
+      <DependentUpon>CourseListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\CourseResourceForm.resx">
+      <DependentUpon>CourseResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\CusCourseListForm.resx">
+      <DependentUpon>CusCourseListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\DetailCourseForm.resx">
+      <DependentUpon>DetailCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\Drawing.resx">
+      <DependentUpon>Drawing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\EditCourseResourceForm.resx">
+      <DependentUpon>EditCourseResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\EditCusCourseForm.resx">
+      <DependentUpon>EditCusCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\EditPubCourseForm.resx">
+      <DependentUpon>EditPubCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\Mapping.resx">
+      <DependentUpon>Mapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\PromptDrag.resx">
+      <DependentUpon>PromptDrag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\PubCourseListForm.resx">
+      <DependentUpon>PubCourseListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\PublishCourseware.resx">
+      <DependentUpon>PublishCourseware.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Courseware\SetPath.resx">
+      <DependentUpon>SetPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Diagram\DiagramAnalysis .resx">
+      <DependentUpon>DiagramAnalysis .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Diagram\DiagramShow.resx">
+      <DependentUpon>DiagramShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Diagram\ResultsReport.resx">
+      <DependentUpon>ResultsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\AddPaperForm.resx">
+      <DependentUpon>AddPaperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\AddTestQuestionForm.resx">
+      <DependentUpon>AddTestQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\AnswerCardForm.resx">
+      <DependentUpon>AnswerCardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\ATQuestionForm.resx">
+      <DependentUpon>ATQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\CardofScoreForm.resx">
+      <DependentUpon>CardofScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\ChosePaperClassForm.resx">
+      <DependentUpon>ChosePaperClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\EditQuestionForm.resx">
+      <DependentUpon>EditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\ExaminationPaperDetailForm.resx">
+      <DependentUpon>ExaminationPaperDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\ExaminationPaperForm.resx">
+      <DependentUpon>ExaminationPaperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\MSQuestionForm.resx">
+      <DependentUpon>MSQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\NewAddPaperQuestionForm.resx">
+      <DependentUpon>NewAddPaperQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\NewAddResourceQuestionForm.resx">
+      <DependentUpon>NewAddResourceQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\NewEditQuestionForm.resx">
+      <DependentUpon>NewEditQuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\NewTestingForm.resx">
+      <DependentUpon>NewTestingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\NewTestQuestionListForm.resx">
+      <DependentUpon>NewTestQuestionListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\QuestionResourceListForm.resx">
+      <DependentUpon>QuestionResourceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\ReadPapersForm.resx">
+      <DependentUpon>ReadPapersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\StudentPaperDetailForm.resx">
+      <DependentUpon>StudentPaperDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\StudentPaperForm.resx">
+      <DependentUpon>StudentPaperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\TestingForm.resx">
+      <DependentUpon>TestingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\TestPapersListForm.resx">
+      <DependentUpon>TestPapersListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Examine\TestQuestionsListForm.resx">
+      <DependentUpon>TestQuestionsListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Help\AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Help\OperationManual.resx">
+      <DependentUpon>OperationManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Help\TechnicalSupport.resx">
+      <DependentUpon>TechnicalSupport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\AddResourceForm.resx">
+      <DependentUpon>AddResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\CusResourceListForm.resx">
+      <DependentUpon>CusResourceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\DerivedResourceForm.resx">
+      <DependentUpon>DerivedResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\DetailResourceContentForm.resx">
+      <DependentUpon>DetailResourceContentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\DetailResourceForm.resx">
+      <DependentUpon>DetailResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\ResourceListForm.resx">
+      <DependentUpon>ResourceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Resource\UpdateResourceForm.resx">
+      <DependentUpon>UpdateResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\AddClassForm.resx">
+      <DependentUpon>AddClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\AddStudent.resx">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\ChangePwdForm.resx">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\ChangeUserInfoForm.resx">
+      <DependentUpon>ChangeUserInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\DemoVideo.resx">
+      <DependentUpon>DemoVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\DetailStudentForm.resx">
+      <DependentUpon>DetailStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\RegistForm.resx">
+      <DependentUpon>RegistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\StClassFrom.resx">
+      <DependentUpon>StClassFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\StudentFrom.resx">
+      <DependentUpon>StudentFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\UpdateUserForm.resx">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\User\UserListForm.resx">
+      <DependentUpon>UserListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VideoFile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AxUnityWebPlayerAXLib">
+      <Guid>{75A564FE-95D1-41A9-B1D9-10D1E3CB502B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="ShockwaveFlashObjects">
+      <Guid>{D27CDB6B-AE6D-11CF-96B8-444553540000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UMHCONTROLLib">
+      <Guid>{AC8375CD-0A34-4E35-845F-75EFEAC9D000}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="UnityWebPlayerAXLib">
+      <Guid>{75A564FE-95D1-41A9-B1D9-10D1E3CB502B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\pencil.png" />
+    <None Include="Img\rubber.png" />
+    <None Include="Img\insert.PNG" />
+    <None Include="Img\relation.PNG" />
+    <None Include="Img\modify.PNG" />
+    <None Include="Img\delete.PNG" />
+    <None Include="bin\x86\Release\Files\playerimg\background.png" />
+    <None Include="bin\x86\Release\Files\playerimg\play.png" />
+    <None Include="bin\x86\Release\Files\playerimg\pause_MouseDown.png" />
+    <None Include="bin\x86\Release\Files\playerimg\play_MouseDown.png" />
+    <None Include="bin\x86\Release\Files\playerimg\reset.png" />
+    <None Include="bin\x86\Release\Files\playerimg\FullScreen.png" />
+    <None Include="Img\SoundReset.png" />
+    <None Include="bin\x86\Release\Files\playerimg\sound.png" />
+    <None Include="bin\x86\Release\Files\playerimg\sound_ban.png" />
+    <None Include="Img\EditorBoard_open.png" />
+    <None Include="Img\EditorBoard_close.png" />
+    <None Include="Resources\BG1.jpg" />
+    <None Include="Resources\KJJX_DT.jpg" />
+    <None Include="Resources\YongHu.png" />
+    <None Include="Resources\KJ_DT.png" />
+    <None Include="Resources\DL_K03.png" />
+    <None Include="Resources\jiemian.jpg" />
+    <None Include="Resources\deng_lu.jpg" />
+    <None Include="Resources\01.jpg" />
+    <None Include="Resources\deng_lu1.jpg" />
+    <None Include="Resources\deng_lu2.jpg" />
+    <None Include="Resources\jiemian1.jpg" />
+    <Content Include="bin\x86\Release\StRttmy.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\x86\Release\StRttmy_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>StRttmy.mdf</DependentUpon>
+    </Content>
+    <Content Include="star01.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

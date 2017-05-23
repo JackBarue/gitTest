@@ -1,0 +1,3 @@
+轨道交通教学管理系统
+rail transit teaching management system 
+简称：RTTMY

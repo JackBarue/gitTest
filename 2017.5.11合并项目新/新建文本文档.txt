@@ -1,0 +1,1 @@
+<add name="DefaultConnection" connectionString=".\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\StRttmy.mdf" providerName="System.Data.SqlClient"/>
